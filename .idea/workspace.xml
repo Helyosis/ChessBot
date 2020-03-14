@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="140a2c2b-df72-406d-a381-2412df06e0f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EchecsBot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/F.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/K.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/P.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/R.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/T.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/empty_board.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/highlight_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/k.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/p.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/t.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chess.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_processing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moves_check.py" afterDir="false" />
+    <list default="true" id="140a2c2b-df72-406d-a381-2412df06e0f0" name="Default Changelist" comment="Initial commit.">
       <change afterPath="$PROJECT_DIR$/venv/bin/Activate.ps1" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/bin/activate" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/bin/activate.csh" afterDir="false" />
@@ -804,6 +779,8 @@
       <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/yarl/quoting.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/lib64" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -914,6 +891,17 @@
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
@@ -937,34 +925,34 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="733" y="383" width="510" height="337" key="#com.intellij.tools.ToolEditorDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584122852744" />
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584198460598">
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584198508515">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584198460598" />
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584198508515" />
     <state width="466" height="544" key="Diff.GoToChangePopup" timestamp="1584198444000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="466" height="544" key="Diff.GoToChangePopup/67.27.1853.1053@67.27.1853.1053" timestamp="1584198444000" />
-    <state x="242" y="116" width="1482" height="872" key="DiffContextDialog" timestamp="1584198450839">
+    <state x="242" y="116" width="1482" height="872" key="DiffContextDialog" timestamp="1584198485768">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="242" y="116" width="1482" height="872" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584198450839" />
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1584197860831">
+    <state x="242" y="116" width="1482" height="872" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584198485768" />
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1584198487684">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584197860831" />
-    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1584197860830">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584198487684" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1584198487683">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584197860830" />
-    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1584197860829">
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584198487683" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1584198487682">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584197860829" />
-    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1584197860830">
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584198487682" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1584198487683">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584197860830" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584198487683" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1584175675713">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
