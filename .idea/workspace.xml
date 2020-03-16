@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="140a2c2b-df72-406d-a381-2412df06e0f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moves_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/moves_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +169,8 @@
     <MESSAGE value="Initial commit." />
     <MESSAGE value="Added game class and grouped together everything related to the game&#10;Also moved some funcs to utils.py" />
     <MESSAGE value="Finished implementing en-passant and others for the pawn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished implementing en-passant and others for the pawn" />
+    <MESSAGE value="Finished implementing checkmate. The game should now be playable.&#10;Added command to bot to show image of game by specifying id.&#10;Added roque move, it should work too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished implementing checkmate. The game should now be playable.&#10;Added command to bot to show image of game by specifying id.&#10;Added roque move, it should work too" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -196,10 +192,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="667" y="170" width="642" height="764" key="#moves_check/67.27.1853.1053@67.27.1853.1053" timestamp="1584374685647" />
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584351163738">
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584376013241">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584351163738" />
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584376013241" />
     <state width="466" height="544" key="Diff.GoToChangePopup" timestamp="1584198444000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -248,6 +244,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="722" y="286" width="540" height="524" key="StructurePopup/67.27.1853.1053@67.27.1853.1053" timestamp="1584345021039" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1584376025738">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1584376025738" />
     <state x="772" y="191" width="432" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584359787435">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

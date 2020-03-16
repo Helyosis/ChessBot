@@ -123,14 +123,14 @@ async def chess(ctx, *args):
             await ctx.send("Mauvais usage. !chess start @ADVERSAIRE")
 
     elif arg == "show" and len(args) == 2:
-        id = pattern_id.match(args[1])
-        if id:
-            if id in saved_games.keys():
-                game = saved_games[id]
-                description = game.description
+        game_id = pattern_id.match(args[1])
+        if game_id:
+            if game_id in saved_games.keys():
+                game_to_show = saved_games[game_id]
+                description = game_to_show.description
             else:
-                game = cursor.execute("""SELECT * IN games WHERE id=?""", (id,)).fetchone()[0]
-                description = game['description']
+                game_to_show = cursor.execute("""SELECT * IN games WHERE id=?""", (game_id,)).fetchone()[0]
+                description = game_to_show['description']
 
             board_path = description_to_image(description)
             board = discord.File(board_path)
