@@ -1,14 +1,4 @@
-def are_differents(piece1, piece2):
-    """
-    Returns True if one piece is black (lowercase) and the other is white (uppercase) and vice-versa
-    Used to determine if one piece can eat the other.
-    Return False otherwise
-    :param piece1: Char
-    :param piece2: Char
-    :return: Bool
-    """
-    return ((piece1.isupper() and piece2.islower()) or (piece1.islower() and piece2.isupper())) or 'O' in {piece1,
-                                                                                                           piece2}
+from utils import are_differents, place_to_coordinates
 
 
 def check_pion(orig, dest, description):
@@ -151,7 +141,7 @@ def check_reine(orig, dest, description):
 
 def piece_not_found(orig, dest, description):
     error_message = f"KeyError: Piece {description[orig]} not supported and not in handler dict."
-    raise Exception()
+    raise Exception(error_message)
 
 
 move_handler = {
@@ -183,18 +173,6 @@ def check_move(orig, dest, description):
     return is_possible
 
 
-def place_to_coordinates(place):
-    """
-    Return a number indicating the coordinate in single-dimension array containing the description of the chess game using the place in chess
-    :param place: str matching the regex [abcdefgh][12345678]
-    :return: coordinate of corresponding place
-    """
-    letter, num = list(place)
-    y = 8 - int(num)
-    x = ord(letter) - ord('a')
-    return 8 * y + x
-
-
 def piece_menaced(piece_coordinate, description):
     """
     Check if piece at `piece_coordinate` is under the menace of an enemy piece. Is used to see if there is check
@@ -211,12 +189,12 @@ def piece_menaced(piece_coordinate, description):
 
 
 if __name__ == '__main__':
-    description = "tOfOTfctOOppOpppcpOOOOOOpOOOpOOOPOOOPOOrOPOOOOOOOOPPOPPPOCFRKFCO"
-    orig = place_to_coordinates('d1')
-    dest = place_to_coordinates('h5')
-    print(check_move(orig, dest, description))
+    description1 = "tOfOTfctOOppOpppcpOOOOOOpOOOpOOOPOOOPOOrOPOOOOOOOOPPOPPPOCFRKFCO"
+    orig1 = place_to_coordinates('d1')
+    dest1 = place_to_coordinates('h5')
+    print(check_move(orig1, dest1, description1))
 
-    orig = place_to_coordinates('a6')
-    dest = place_to_coordinates('c6')
-    description = "OcfrkfctOpppOppptOOOFOOOpOOOOOOOOOOOOOOOOOOKPOOOPPPPCPPPTCFROOOT"
-    print(check_move(orig, dest, description))
+    orig2 = place_to_coordinates('a6')
+    dest2 = place_to_coordinates('c6')
+    description2 = "OcfrkfctOpppOppptOOOFOOOpOOOOOOOOOOOOOOOOOOKPOOOPPPPCPPPTCFROOOT"
+    print(check_move(orig2, dest2, description2))
