@@ -47,21 +47,30 @@ async def on_message(message):
                 move = move.group()
                 game_id = channel.name
                 print(game_id)
+
                 if game_id in saved_games.keys():
                     chess_game = saved_games[game_id]
                 else:
                     game_infos = cursor.execute("""SELECT * FROM games WHERE id=?""", (game_id,)).fetchone()
                     chess_game = game.Game(game_infos['player1'], game_infos['player2'], game_infos['player_turn'],
-                                           game_infos['description'])
+                                           game_infos['description'], game_infos['last_move'],
+                                           game_infos['king1_moved'], game_infos['king2_moved'])
 
                 if message.author.id == chess_game.playing_user_id:
-                    board_path = chess_game.make_move()
+                    board_path = chess_game.make_move(move)
                     if board_path is not None:
                         board = discord.File(board_path)
-                        print("j'envoie l'image")
+                        print("Mouvement valide. J'envoie le message")
                         await channel.send(message, file=board)
+
+                        updated_infos = chess_game.prepare_update_db()
+                        cursor.execute(
+                            """UPDATE games SET description = ?, player_turn = ?, last_move = ?, king1_mobed = ?, king2_moved = ? WHERE id = ?""",
+                            (*updated_infos, game_id))
+                        db_conn.commit()
+
                     else:
-                        print('Mauvais mouvement:', move)
+                        print('Le mouvement n\'est pas valide:', move)
                         print("".join(chess_game.description))
 
     await client.process_commands(message)
@@ -93,10 +102,11 @@ async def chess(ctx, *args):
             random.shuffle(ids)
             cursor.execute(
                 """INSERT  INTO games (id, description, player1, player2, player_turn, last_move, king_moved) VALUES (?, ?, ?, ?, ?, ?, ?) """,
-                (room_name, new_game_description, ids[0], ids[1], 1, "", 0))
+                (room_name, new_game_description, ids[0], ids[1], 1, "", 0, 0))
             db_conn.commit()
             await ctx.send(f"La partie va commencer ! Rendez-vous sur le salon <#{new_channel.id}>")
-            new_game = game.Game(ids[0], ids[1], 1, new_game_description, "", 0)
+
+            new_game = game.Game(ids[0], ids[1], 1, new_game_description, "", 0, 0)
             saved_games[room_name] = new_game
             board_path = new_game.get_image()
 
@@ -123,7 +133,7 @@ if __name__ == '__main__':
     db_conn.row_factory = sqlite3.Row  # Set Row to be used as dict
     cursor = db_conn.cursor()
     cursor.execute(
-        """ CREATE TABLE IF NOT EXISTS games(id TEXT, description TEXT, player1 INT, player2 INT, player_turn INT, last_move TEXT, king1_moved INT) """)
+        """ CREATE TABLE IF NOT EXISTS games(id TEXT, description TEXT, player1 INT, player2 INT, player_turn INT, last_move TEXT, king1_moved INT, king2_moved) """)
 
     pattern_moves = re.compile('[abcdefgh][12345678] [abcdefgh][12345678]')
 

@@ -40,6 +40,18 @@ def place_to_coordinates(place):
     return 8 * y + x
 
 
+def coordinates_to_place(index):
+    """
+    Return the matching place on the board on a certain index. Index go from up to bottom and then from left to right
+    :param index: int
+    :return: Char[2]
+    """
+    y, x = index // 8, index % 8
+    row = str(8 - y)
+    column = chr(x + ord('a'))
+    return row + column
+
+
 def are_differents(piece1, piece2):
     """
     Returns True if one piece is black (lowercase) and the other is white (uppercase) and vice-versa

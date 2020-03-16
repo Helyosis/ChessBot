@@ -1,7 +1,7 @@
-from utils import are_differents, place_to_coordinates
+from utils import are_differents, place_to_coordinates, coordinates_to_place
 
 
-def check_pion(orig, dest, description):
+def check_pion(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check pion from {orig}')
 
     piece = description[orig]
@@ -12,21 +12,45 @@ def check_pion(orig, dest, description):
 
     if mouvement == 8 and description[dest] == 'O':  # The pawn go up by one case and the case if free
         return True
-    if mouvement == 7 or mouvement == 9 and are_differents(piece, description[dest]) and description[
-        dest] != 'O':  # The pawn can eat in diagonal
+    if mouvement == 7 or mouvement == 9:
+        if are_differents(piece, description[dest]) and description[dest] != 'O':  # The pawn can eat in diagonal
+            return True
+
+    if mouvement == 2 * 8:
+        if piece.isupper() and orig % 8 == 6 and description[dest] == description[
+            dest - 8] == 'O':  # Is on row 6 and white
+            return True
+
+        if piece.islower() and orig % 8 == 1 and description[dest] == description[
+            dest + 8] == 'O':  # Is on row 1 and black
+            return True
+
+    return False
+
+
+def check_en_passant(orig, dest, description, last_move):
+    if description[orig] == 'P' and description[dest] == 'O':  # White pawn
+        mouvement = orig - dest
+        expected_last_move = coordinates_to_place(dest) + ' ' + coordinates_to_place(dest - 8)
+
+    elif description[orig] == 'p' and description[dest] == 'O':  # Black pawn
+        mouvement = dest - orig
+        expected_last_move = coordinates_to_place(dest) + ' ' + coordinates_to_place(dest + 8)
+
+    if mouvement in (7, 9) and description[dest - 8] == 'p' and expected_last_move == last_move:
         return True
 
     return False
 
 
-def check_cavalier(orig, dest, description):
+def check_cavalier(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check cavalier from {orig}')
     possible_moves = [-2 + 8, -2 - 8, 2 + 8, 2 - 8, 16 - 1, 16 + 1, -16 - 1,
                       -16 + 1]  # Get all legal differences of dest - orig for this piece
     return dest - orig in possible_moves and are_differents(description[orig], description[dest])
 
 
-def check_fou(orig, dest, description):
+def check_fou(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check fou from {orig} to {dest}')
     yOrig, xOrig = orig // 8, orig % 8
     yDest, xDest = dest // 8, dest % 8
@@ -75,7 +99,7 @@ def check_fou(orig, dest, description):
     return False
 
 
-def check_roi(orig, dest, description):
+def check_roi(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check roi from {orig}')
     possible_mouvements = [-8 - 1, -8, -8 + 1, -1, 1, 8 - 1, 8, 8 + 1]  # All 8 possible mouvement from a King
     if dest - orig in possible_mouvements and are_differents(description[orig], description[dest]):
@@ -83,7 +107,7 @@ def check_roi(orig, dest, description):
     return False
 
 
-def check_tour(orig, dest, description):
+def check_tour(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check tour from {orig} to {dest}')
     yOrig, xOrig = orig // 8, orig % 8
     yDest, xDest = dest // 8, dest % 8
@@ -132,14 +156,16 @@ def check_tour(orig, dest, description):
     return False
 
 
-def check_reine(orig, dest, description):
+def check_reine(orig, dest, description, king1_moved, king2_moved, last_move):
     print(f'Check reine from {orig}')
-    if check_fou(orig, dest, description) or check_tour(orig, dest, description):
+    if check_fou(orig, dest, description, king1_moved, king2_moved, last_move) or check_tour(orig, dest, description,
+                                                                                             king1_moved, king2_moved,
+                                                                                             last_move):
         return True
     return False
 
 
-def piece_not_found(orig, dest, description):
+def piece_not_found(orig, dest, description, king1_moved, king2_moved, last_move):
     error_message = f"KeyError: Piece {description[orig]} not supported and not in handler dict."
     raise Exception(error_message)
 
@@ -160,7 +186,7 @@ move_handler = {
 }
 
 
-def check_move(orig, dest, description):
+def check_move(orig, dest, description, king1_moved, king2_moved, last_move):
     """
     Test if move is legal in chess in the configuration of description argiment
     Coordinates are the index in description of the corresponding piece, NOT the formated chess coordinates
@@ -169,7 +195,9 @@ def check_move(orig, dest, description):
     :param description: represent state of the board, before the actual move
     :return: True if the move is legal, False otherwise
     """
-    is_possible = move_handler.get(description[orig], piece_not_found)(orig, dest, description) and orig != dest
+    is_possible = move_handler.get(description[orig], piece_not_found)(orig, dest, description, king1_moved,
+                                                                       king2_moved, last_move) and orig != dest
+
     return is_possible
 
 

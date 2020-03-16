@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="140a2c2b-df72-406d-a381-2412df06e0f0" name="Default Changelist" comment="Initial commit.">
-      <change afterPath="$PROJECT_DIR$/Ressources/highlight_gold.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ressources/highlight_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    <list default="true" id="140a2c2b-df72-406d-a381-2412df06e0f0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/highlight_square.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moves_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/moves_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +138,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Initial commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
+    <MESSAGE value="Added game class and grouped together everything related to the game&#10;Also moved some funcs to utils.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added game class and grouped together everything related to the game&#10;Also moved some funcs to utils.py" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -160,10 +157,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="733" y="383" width="510" height="337" key="#com.intellij.tools.ToolEditorDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584122852744" />
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584198686315">
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584346842130">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584198686315" />
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584346842130" />
     <state width="466" height="544" key="Diff.GoToChangePopup" timestamp="1584198444000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -200,5 +197,9 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584184972097" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584347137754">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584347137754" />
   </component>
 </project>
