@@ -1,6 +1,6 @@
 import random
 
-alphabet = "abcdefghijklmnopqrs tuvwxyz1234567890"
+alphabet = "abcdefghijklmnopqrstuvwxyz1234567890"
 VIDE, PION_BLANC, PION_NOIR, TOUR_BLANC, TOUR_NOIR, CAVALIER_BLANC, CAVALIER_NOIR, FOU_BLANC, FOU_NOIR, REINE_BLANC, REINE_NOIR, ROI_BLANC, ROI_NOIR = \
     'O', 'P', 'p', 'T', 't', 'C', 'c', 'F', 'f', 'R', 'r', 'K', 'k'
 
@@ -49,10 +49,10 @@ def coordinates_to_place(index):
     y, x = index // 8, index % 8
     row = str(8 - y)
     column = chr(x + ord('a'))
-    return row + column
+    return column + row
 
 
-def are_differents(piece1, piece2):
+def can_go_to(piece1, piece2):
     """
     Returns True if one piece is black (lowercase) and the other is white (uppercase) and vice-versa
     Used to determine if one piece can eat the other.
@@ -63,3 +63,14 @@ def are_differents(piece1, piece2):
     """
     return ((piece1.isupper() and piece2.islower()) or (piece1.islower() and piece2.isupper())) or 'O' in {piece1,
                                                                                                            piece2}
+
+
+def are_differents(piece1, piece2):
+    """
+    Same as can_go_to but return False if p1 or p2 == 'O'
+    :param piece1: Char
+    :param piece2: Char
+    :return: Bool
+    """
+    return ((piece1.isupper() and piece2.islower()) or (piece1.islower() and piece2.isupper())) and 'O' not in {piece1,
+                                                                                                                piece2}

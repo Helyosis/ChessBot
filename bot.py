@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 
 import game
+from image_processing import description_to_image
 from utils import *
 
 client = commands.Bot(command_prefix='!', description="Aujourd'hui j'ai mangé un fou")
@@ -40,8 +41,7 @@ async def on_message(message):
         print(f"{author_display_name} > {message.clean_content}")
 
         channel = message.channel
-        if channel.name.startswith('c-') and len(
-                channel.name) == 12 and channel.category.name == "Games":  # Is an adequate channel for the game, not perfect but good enough
+        if pattern_id.match(channel.name):  # Is an adequate channel for the game, not perfect but good enough
             move = pattern_moves.match(message.content)
             if move is not None:
                 move = move.group()
@@ -54,24 +54,28 @@ async def on_message(message):
                     game_infos = cursor.execute("""SELECT * FROM games WHERE id=?""", (game_id,)).fetchone()
                     chess_game = game.Game(game_infos['player1'], game_infos['player2'], game_infos['player_turn'],
                                            game_infos['description'], game_infos['last_move'],
-                                           game_infos['king1_moved'], game_infos['king2_moved'])
+                                           game_infos['moved_pieces'])
 
                 if message.author.id == chess_game.playing_user_id:
                     board_path = chess_game.make_move(move)
                     if board_path is not None:
                         board = discord.File(board_path)
                         print("Mouvement valide. J'envoie le message")
-                        await channel.send(message, file=board)
+                        annonce = f"{author_display_name} a joué {move}. C'est maintenant au tour de <@{chess_game.playing_user_id}> !"
+                        await channel.send(annonce, file=board)
 
                         updated_infos = chess_game.prepare_update_db()
                         cursor.execute(
-                            """UPDATE games SET description = ?, player_turn = ?, last_move = ?, king1_mobed = ?, king2_moved = ? WHERE id = ?""",
+                            """UPDATE games SET description = ?, player_turn = ?, last_move = ?, moved_pieces = ? WHERE id = ?""",
                             (*updated_infos, game_id))
                         db_conn.commit()
 
                     else:
                         print('Le mouvement n\'est pas valide:', move)
                         print("".join(chess_game.description))
+                        print("Player_turn", chess_game.player_turn)
+                        print("Last_move", chess_game.last_move)
+                        await channel.send(f"Le mouvement {move} est invalide. Veuillez en renseigner un autre")
 
     await client.process_commands(message)
 
@@ -101,12 +105,12 @@ async def chess(ctx, *args):
             ids = [int(ctx.author.id), int(other_id)]
             random.shuffle(ids)
             cursor.execute(
-                """INSERT  INTO games (id, description, player1, player2, player_turn, last_move, king_moved) VALUES (?, ?, ?, ?, ?, ?, ?) """,
-                (room_name, new_game_description, ids[0], ids[1], 1, "", 0, 0))
+                """INSERT  INTO games (id, description, player1, player2, player_turn, last_move, moved_pieces) VALUES (?, ?, ?, ?, ?, ?, ?) """,
+                (room_name, new_game_description, ids[0], ids[1], 1, "", '0' * 64))
             db_conn.commit()
             await ctx.send(f"La partie va commencer ! Rendez-vous sur le salon <#{new_channel.id}>")
 
-            new_game = game.Game(ids[0], ids[1], 1, new_game_description, "", 0, 0)
+            new_game = game.Game(ids[0], ids[1], 1, new_game_description, "", '0' * 64)
             saved_games[room_name] = new_game
             board_path = new_game.get_image()
 
@@ -117,6 +121,21 @@ async def chess(ctx, *args):
 
         else:
             await ctx.send("Mauvais usage. !chess start @ADVERSAIRE")
+
+    elif arg == "show" and len(args) == 2:
+        id = pattern_id.match(args[1])
+        if id:
+            if id in saved_games.keys():
+                game = saved_games[id]
+                description = game.description
+            else:
+                game = cursor.execute("""SELECT * IN games WHERE id=?""", (id,)).fetchone()[0]
+                description = game['description']
+
+            board_path = description_to_image(description)
+            board = discord.File(board_path)
+            annonce = f"Voici l'image du plateau de jeu de la partie {id}"
+            await ctx.send(annonce, file=board)
 
     else:
         await ctx.send("Mauvais argument.")
@@ -133,8 +152,9 @@ if __name__ == '__main__':
     db_conn.row_factory = sqlite3.Row  # Set Row to be used as dict
     cursor = db_conn.cursor()
     cursor.execute(
-        """ CREATE TABLE IF NOT EXISTS games(id TEXT, description TEXT, player1 INT, player2 INT, player_turn INT, last_move TEXT, king1_moved INT, king2_moved) """)
+        """ CREATE TABLE IF NOT EXISTS games(id TEXT, description TEXT, player1 INT, player2 INT, player_turn INT, last_move TEXT, moved_pieces TEXT) """)
 
     pattern_moves = re.compile('[abcdefgh][12345678] [abcdefgh][12345678]')
+    pattern_id = re.compile('^C-[abcdefghijklmnoprsqtuvwxyz1234567890]{9}$')
 
     client.run(TOKEN)

@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moves_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/moves_check.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
@@ -39,13 +40,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.bot">
+  <component name="RunManager" selected="Python.image_processing">
     <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EchecsBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,6 +61,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="EchecsBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,14 +134,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bot" />
-        <item itemvalue="Python.moves_check" />
         <item itemvalue="Python.image_processing" />
+        <item itemvalue="Python.moves_check" />
+        <item itemvalue="Python.bot" />
+        <item itemvalue="Python.game" />
       </list>
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -139,7 +173,8 @@
     </ignored-roots>
     <MESSAGE value="Initial commit." />
     <MESSAGE value="Added game class and grouped together everything related to the game&#10;Also moved some funcs to utils.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added game class and grouped together everything related to the game&#10;Also moved some funcs to utils.py" />
+    <MESSAGE value="Finished implementing en-passant and others for the pawn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished implementing en-passant and others for the pawn" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -157,10 +192,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="733" y="383" width="510" height="337" key="#com.intellij.tools.ToolEditorDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584122852744" />
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584346842130">
+    <state x="667" y="170" width="642" height="764" key="#moves_check" timestamp="1584374685647">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584346842130" />
+    <state x="667" y="170" width="642" height="764" key="#moves_check/67.27.1853.1053@67.27.1853.1053" timestamp="1584374685647" />
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2" timestamp="1584351163738">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="595" y="96" width="786" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584351163738" />
     <state width="466" height="544" key="Diff.GoToChangePopup" timestamp="1584198444000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -169,22 +208,38 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="242" y="116" width="1482" height="872" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584198485768" />
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1584202572985">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1584375847341">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584202572985" />
-    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1584202572985">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584375847341" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1584375847340">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584202572985" />
-    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1584202572983">
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584375847340" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1584375847340">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584202572983" />
-    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1584202572985">
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584375847340" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1584375847340">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584202572985" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584375847340" />
+    <state width="1830" height="344" key="GridCell.Tab.1.bottom" timestamp="1584371711743">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584371711743" />
+    <state width="1830" height="344" key="GridCell.Tab.1.center" timestamp="1584371711742">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584371711742" />
+    <state width="1830" height="344" key="GridCell.Tab.1.left" timestamp="1584371711742">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584371711742" />
+    <state width="1830" height="344" key="GridCell.Tab.1.right" timestamp="1584371711742">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584371711742" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1584175675713">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -193,13 +248,21 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="722" y="286" width="540" height="524" key="StructurePopup/67.27.1853.1053@67.27.1853.1053" timestamp="1584345021039" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1584184972097">
+    <state x="772" y="191" width="432" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584359787435">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584184972097" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584347137754">
+    <state x="772" y="191" width="432" height="723" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1584359787435" />
+    <state x="641" y="119" width="704" height="867" key="find.popup" timestamp="1584360776579">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584347137754" />
+    <state x="641" y="119" width="704" height="867" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584360776579" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1584352505970">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584352505970" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584352508108">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584352508108" />
   </component>
 </project>
